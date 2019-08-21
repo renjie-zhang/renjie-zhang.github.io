@@ -6,10 +6,28 @@
     <description>Recent content in Tags on 沉淀</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh</language>
-    <lastBuildDate>Mon, 04 Jun 2018 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Tue, 20 Aug 2019 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="https://renjie-zhang.github.io/tags/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Algorithm</title>
+      <link>https://renjie-zhang.github.io/tags/algorithm/</link>
+      <pubDate>Tue, 20 Aug 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://renjie-zhang.github.io/tags/algorithm/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Data Structure</title>
+      <link>https://renjie-zhang.github.io/tags/data-structure/</link>
+      <pubDate>Tue, 20 Aug 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://renjie-zhang.github.io/tags/data-structure/</guid>
+      <description></description>
+    </item>
     
     <item>
       <title>algorithmes</title>

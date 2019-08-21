@@ -6,10 +6,19 @@
     <description>Recent content on 沉淀</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh</language>
-    <lastBuildDate>Mon, 04 Jun 2018 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Tue, 20 Aug 2019 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="https://renjie-zhang.github.io/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Queue</title>
+      <link>https://renjie-zhang.github.io/post/queue/</link>
+      <pubDate>Tue, 20 Aug 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://renjie-zhang.github.io/post/queue/</guid>
+      <description>Queue A good example of a queue is any queue of consumers for a resource where the consumer that came first is served first. The difference between stacks and queues is in removing. In a stack we remove the item the most recently added; in a queue, we remove the item the least recently added.</description>
+    </item>
     
     <item>
       <title>Recursion</title>
