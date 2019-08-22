@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Posts on 沉淀</title>
+    <title>Posts on renjie.zhang</title>
     <link>https://renjie-zhang.github.io/post/</link>
-    <description>Recent content in Posts on 沉淀</description>
+    <description>Recent content in Posts on renjie.zhang</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh</language>
     <lastBuildDate>Tue, 20 Aug 2019 00:00:00 +0000</lastBuildDate>
@@ -13,20 +13,11 @@
     
     <item>
       <title>Queue</title>
-      <link>https://renjie-zhang.github.io/post/queue/</link>
+      <link>https://renjie-zhang.github.io/post/2019-08-22-queue/</link>
       <pubDate>Tue, 20 Aug 2019 00:00:00 +0000</pubDate>
       
-      <guid>https://renjie-zhang.github.io/post/queue/</guid>
-      <description>Queue A good example of a queue is any queue of consumers for a resource where the consumer that came first is served first. The difference between stacks and queues is in removing. In a stack we remove the item the most recently added; in a queue, we remove the item the least recently added.</description>
-    </item>
-    
-    <item>
-      <title>Recursion</title>
-      <link>https://renjie-zhang.github.io/post/recursion/</link>
-      <pubDate>Mon, 04 Jun 2018 00:00:00 +0000</pubDate>
-      
-      <guid>https://renjie-zhang.github.io/post/recursion/</guid>
-      <description>服务 服务网格将服务间通讯以及与此相关的管理控制功能从业务程序中下移到一个基础设施层，从而彻底隔离了业务逻辑和服务通讯两个关注点。采用服务网格</description>
+      <guid>https://renjie-zhang.github.io/post/2019-08-22-queue/</guid>
+      <description>队列Ⅰ 像堆栈一样，队列是一种线性结构，它遵循着执行操作的特定顺序。比如在开发中常用的线程池就是一个队列，当我们向固定大小的线程池中请求一个线</description>
     </item>
     
   </channel>

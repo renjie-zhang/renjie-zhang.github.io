@@ -33,7 +33,7 @@
   </url>
   
   <url>
-    <loc>https://renjie-zhang.github.io/post/queue/</loc>
+    <loc>https://renjie-zhang.github.io/post/2019-08-22-queue/</loc>
     <lastmod>2019-08-20T00:00:00+00:00</lastmod>
   </url>
   
@@ -46,23 +46,6 @@
   <url>
     <loc>https://renjie-zhang.github.io/</loc>
     <lastmod>2019-08-20T00:00:00+00:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>https://renjie-zhang.github.io/post/recursion/</loc>
-    <lastmod>2018-06-04T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://renjie-zhang.github.io/categories/tech/</loc>
-    <lastmod>2018-06-04T00:00:00+00:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>https://renjie-zhang.github.io/tags/algorithmes/</loc>
-    <lastmod>2018-06-04T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
