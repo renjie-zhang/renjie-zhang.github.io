@@ -4,49 +4,59 @@
   
   <url>
     <loc>https://renjie-zhang.github.io/tags/algorithm/</loc>
-    <lastmod>2019-08-20T00:00:00+00:00</lastmod>
+    <lastmod>2019-09-03T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
     <loc>https://renjie-zhang.github.io/categories/blog/</loc>
-    <lastmod>2019-08-20T00:00:00+00:00</lastmod>
+    <lastmod>2019-09-03T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
     <loc>https://renjie-zhang.github.io/categories/</loc>
-    <lastmod>2019-08-20T00:00:00+00:00</lastmod>
+    <lastmod>2019-09-03T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
     <loc>https://renjie-zhang.github.io/tags/data-structure/</loc>
-    <lastmod>2019-08-20T00:00:00+00:00</lastmod>
+    <lastmod>2019-09-03T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
     <loc>https://renjie-zhang.github.io/post/</loc>
-    <lastmod>2019-08-20T00:00:00+00:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>https://renjie-zhang.github.io/post/2019-08-22-queue/</loc>
-    <lastmod>2019-08-20T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://renjie-zhang.github.io/tags/</loc>
-    <lastmod>2019-08-20T00:00:00+00:00</lastmod>
+    <lastmod>2019-09-03T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
     <loc>https://renjie-zhang.github.io/</loc>
-    <lastmod>2019-08-20T00:00:00+00:00</lastmod>
+    <lastmod>2019-09-03T00:00:00+00:00</lastmod>
     <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://renjie-zhang.github.io/tags/</loc>
+    <lastmod>2019-09-03T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://renjie-zhang.github.io/post/2019-08-31-josephus/</loc>
+    <lastmod>2019-09-03T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://renjie-zhang.github.io/post/2019-08-27-queue-ii/</loc>
+    <lastmod>2019-08-27T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://renjie-zhang.github.io/post/2019-08-22-queue/</loc>
+    <lastmod>2019-08-20T00:00:00+00:00</lastmod>
   </url>
   
   <url>
@@ -65,6 +75,16 @@
   </url>
   
   <url>
+    <loc>https://renjie-zhang.github.io/categories/collect/</loc>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://renjie-zhang.github.io/tags/collect/</loc>
+    <priority>0</priority>
+  </url>
+  
+  <url>
     <loc>https://renjie-zhang.github.io/search/</loc>
     <priority>0</priority>
   </url>
@@ -72,6 +92,10 @@
   <url>
     <loc>https://renjie-zhang.github.io/top/</loc>
     <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://renjie-zhang.github.io/post/2019-08-30-collect/</loc>
   </url>
   
 </urlset>

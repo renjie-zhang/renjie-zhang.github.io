@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Tags on renjie.zhang</title>
+    <title>Tags on Renjie Blog</title>
     <link>https://renjie-zhang.github.io/tags/</link>
-    <description>Recent content in Tags on renjie.zhang</description>
+    <description>Recent content in Tags on Renjie Blog</description>
     <generator>Hugo -- gohugo.io</generator>
-    <language>zh</language>
-    <lastBuildDate>Tue, 20 Aug 2019 00:00:00 +0000</lastBuildDate>
+    <language>en-us</language>
+    <lastBuildDate>Tue, 03 Sep 2019 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="https://renjie-zhang.github.io/tags/index.xml" rel="self" type="application/rss+xml" />
     
@@ -14,7 +14,7 @@
     <item>
       <title>Algorithm</title>
       <link>https://renjie-zhang.github.io/tags/algorithm/</link>
-      <pubDate>Tue, 20 Aug 2019 00:00:00 +0000</pubDate>
+      <pubDate>Tue, 03 Sep 2019 00:00:00 +0000</pubDate>
       
       <guid>https://renjie-zhang.github.io/tags/algorithm/</guid>
       <description></description>
@@ -23,9 +23,18 @@
     <item>
       <title>Data Structure</title>
       <link>https://renjie-zhang.github.io/tags/data-structure/</link>
-      <pubDate>Tue, 20 Aug 2019 00:00:00 +0000</pubDate>
+      <pubDate>Tue, 03 Sep 2019 00:00:00 +0000</pubDate>
       
       <guid>https://renjie-zhang.github.io/tags/data-structure/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Collect</title>
+      <link>https://renjie-zhang.github.io/tags/collect/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://renjie-zhang.github.io/tags/collect/</guid>
       <description></description>
     </item>
     
