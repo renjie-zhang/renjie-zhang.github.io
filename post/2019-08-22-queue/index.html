@@ -10,8 +10,8 @@
     <meta property="og:type" content="article">
 
     
-    <meta property="og:image" content="https://renjie-zhang.github.io/img/home-bg.jpg">
-    <meta property="twitter:image" content="https://renjie-zhang.github.io/img/home-bg.jpg" />
+    <meta property="og:image" content="https://renjie-zhang.github.io/http://q0faa0vnq.bkt.clouddn.com/image/bloghome-bg.jpg">
+    <meta property="twitter:image" content="https://renjie-zhang.github.io/http://q0faa0vnq.bkt.clouddn.com/image/bloghome-bg.jpg" />
     
 
     
@@ -165,7 +165,7 @@
 
 <style type="text/css">
     header.intro-header {
-        background-image: url('https://raw.githubusercontent.com/renjie-zhang/renjie-zhang.github.io/master/img/Queue-title.jpg')
+        background-image: url('http://q0faa0vnq.bkt.clouddn.com/image/blogQueue-title.jpg')
     }
 </style>
 <header class="intro-header">
@@ -412,7 +412,7 @@ func (this *ArrayQueue) Show() string {
 
 <p>当使用一个数组实现队列，进行出队与入队操作之后，已使用过的位置不能进行重复使用，导致资源浪费，所以可以使用一个循环队列来保证充分利用资。循环队列是一种基于先进先出（FIFO）操作顺序的线性数据结构，将最后一个位置连接回第一个位置形成一个圆圈，它也被称作“环形缓冲区”。在环形队列中判断队列满了的条件有产生了变化，当(Rear+1)%MaxSize = Front时，此时的队列便不能再进行入队了。实际上Rear执行的地址并没有存储数据，因此循环队列会浪费掉一个位置。</p>
 
-<p><img src="/img/Circular-queue.png" alt="" /></p>
+<p><img src="http://q0faa0vnq.bkt.clouddn.com/image/blogCircular-queue.png" alt="queue" /></p>
 
 <h2 id="基于数组实现循环队列-java">基于数组实现循环队列（java）</h2>
 
