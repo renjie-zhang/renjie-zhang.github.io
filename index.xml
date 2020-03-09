@@ -60,34 +60,7 @@
       <guid>https://renjie-zhang.github.io/top/about/</guid>
       <description>About Me 戒骄、戒躁
 成长中 2015年9月-2019年6月 成都师范学院 计算机科学学院
-2018年11月-至今 成都天衡智造有限公司 Java研发
-爱好 篮球、健身、代码、美剧</description>
-    </item>
-    
-    <item>
-      <title></title>
-      <link>https://renjie-zhang.github.io/top/books/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>https://renjie-zhang.github.io/top/books/</guid>
-      <description> 学习笔记 </description>
-    </item>
-    
-    <item>
-      <title>collect</title>
-      <link>https://renjie-zhang.github.io/post/2019-08-30-collect/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>https://renjie-zhang.github.io/post/2019-08-30-collect/</guid>
-      <description>网站 计算机技术教程：https://www.geeksforgeeks.org/
-设计模式：https://java-design-patterns.com/patterns/
-算法字典：https://xlinux.nist.gov/dads/
-数据结构与算法：https://java2blog.com/data-structure-and-algorithm-interview-questions-in-java/
-Linux系统在线体验：https://distrotest.net/
-每日文章推荐：https://www.discoverdev.io/
-Hacker news: https://news.ycombinator.com/
-在线工具 百度脑图： https://naotu.baidu.com/
-在线画图：https://www.processon.com/</description>
+2018年11月-至今 成都天衡智造有限公司 Java研发；目前主要内容维护以开发模块，PYQT开发</description>
     </item>
     
   </channel>

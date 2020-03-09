@@ -70,21 +70,6 @@
   </url>
   
   <url>
-    <loc>https://renjie-zhang.github.io/top/books/</loc>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>https://renjie-zhang.github.io/categories/collect/</loc>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>https://renjie-zhang.github.io/tags/collect/</loc>
-    <priority>0</priority>
-  </url>
-  
-  <url>
     <loc>https://renjie-zhang.github.io/search/</loc>
     <priority>0</priority>
   </url>
@@ -92,10 +77,6 @@
   <url>
     <loc>https://renjie-zhang.github.io/top/</loc>
     <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>https://renjie-zhang.github.io/post/2019-08-30-collect/</loc>
   </url>
   
 </urlset>
