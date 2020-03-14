@@ -6,10 +6,22 @@
     <description>Recent content in Blog on Renjie Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Tue, 03 Sep 2019 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Sat, 14 Mar 2020 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="https://renjie-zhang.github.io/categories/blog/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Gin</title>
+      <link>https://renjie-zhang.github.io/post/2020-3-14-gin-first/</link>
+      <pubDate>Sat, 14 Mar 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://renjie-zhang.github.io/post/2020-3-14-gin-first/</guid>
+      <description>Gin初体验 后端开发难免会接触到web,在Java的框架中spring一家独大，无论是web还是其他服务spring都是不二的选择；而golang的web方面选择特别的多，想gin,beego等，现在还处于不断造轮子的阶段，都在为开源做贡献，目前进行了一个Gin的初体验，总体上是让人很满意的，不管是gin还是beego都是以modules的这种形式，只允许加入自己需要的东西，减少负荷，以便加载到内存中的modules都是自己需要的。
+特性都可以在gin的文档中寻找到，如果追求性能与高效，这是一个吸引人的亮点，在目前的开发中，都是最求极致的性能与高效。本来go已经在http中为我们做足了工作，建立起一个http请求及其简单。
+package main import ( &amp;quot;fmt&amp;quot; &amp;quot;net/http&amp;quot; &amp;quot;time&amp;quot; ) func greet(w http.ResponseWriter, r *http.Request) { fmt.Fprintf(w, &amp;quot;Hello World! %s&amp;quot;, time.Now()) } func header(w http.ResponseWriter, req *http.Request) { for name, headers := range req.Header { for _, h := range headers { fmt.Fprintf(w, &amp;quot;%v: %v\n&amp;quot;, name, h) } } } func main() { http.HandleFunc(&amp;quot;/&amp;quot;, greet) http.HandleFunc(&amp;quot;/headers&amp;quot;, header) http.ListenAndServe(&amp;quot;:8080&amp;quot;, nil) }  这样便建立起了一个http server,监听在8080端口。而gin建立起一个请求更为简单，一下为入门例子。
+package main import &amp;quot;github.com/gin-gonic/gin&amp;quot; func main() { r := gin.</description>
+    </item>
     
     <item>
       <title>约瑟夫环(Josephus) </title>
@@ -17,9 +29,9 @@
       <pubDate>Tue, 03 Sep 2019 00:00:00 +0000</pubDate>
       
       <guid>https://renjie-zhang.github.io/post/2019-08-31-josephus/</guid>
-      <description>约瑟夫问题 据说著名犹太历史学家 Josephus有过以下的故事：在罗马人占领乔塔帕特后，39 个犹太人与Josephus及他的朋友躲到一个洞中，39个犹太人决定宁愿死也不要被敌人抓到，于是决定了一个自杀方式：41个人排成一个圆圈，由第1个人开始报数，每报数到第3人该人就必须自杀，然后再由下一个重新报数，直到所有人都自杀身亡为止。然而Josephus 和他的朋友并不想遵从。首先从一个人开始，越过k-2个人（因为第一个人已经被越过），并杀掉第k个人。接着，再越过k-1个人，并杀掉第k个人。这个过程沿着圆圈一直进行，直到最终只剩下一个人留下，这个人就可以继续活着。问题是一开始要站在什么地方才能避免自杀？Josephus要他的朋友先假装遵从，他将朋友与自己安排在第16个与第31个位置，于是逃过了这场死亡游戏。 17世纪的法国数学家加斯帕在《数目的游戏问题》中讲了这样一个故事：15个教徒和15个非教徒在深海上遇险，必须将一半的人投入海中，其余的人才能幸免于难，于是想了一个办法：30个人围成一圆圈，从第一个人开始依次报数，每数到第九个人就将他扔入大海，如此循环进行直到仅余15个人为止。问怎样排法，才能使每次投入大海的都是非教徒。 来自百度百科。
+      <description>约瑟夫问题 据说著名犹太历史学家 Josephus有过以下的故事：在罗马人占领乔塔帕特后，39 个犹太人与Josephus及他的朋友躲到一个洞中，39个犹太人决定宁愿死也不要被敌人抓到，于是决定了一个自杀方式：41个人排成一个圆圈，由第1个人开始报数，每报数到第3人该人就必须自杀，然后再由下一个重新报数，直到所有人都自杀身亡为止。然而Josephus 和他的朋友并不想遵从。首先从一个人开始，越过k-2个人（因为第一个人已经被越过），并杀掉第k个人。接着，再越过k-1个人，并杀掉第k个人。这个过程沿着圆圈一直进行，直到最终只剩下一个人留下，这个人就可以继续活着。问题是一开始要站在什么地方才能避免自杀？Josephus要他的朋友先假装遵从，他将朋友与自己安排在第16个与第31个位置，于是逃过了这场死亡游戏。
 问题即，给定人数、起点、方向和要跳过的数字，选择初始圆圈中的位置以避免被处决。
-解法:使用单项的循环链表模拟整个过程，时间复杂度为O(N*M),而空间复杂度为O(N)。或者使用数学公式递归的方式求出存活下来的编号。
+基本选择的解法是使用单项的循环链表模拟整个过程，时间复杂度为O(N*M),而空间复杂度为O(N)。或者使用数学公式递归的方式求出存活下来的编号。
 循环链表解决 static void getPosition(int index,int total){ //first create a circle linked head Node head = new Node(1); Node prev = head; for(int i = 2;i&amp;lt;=total;i++){ prev.next = new Node(i); //move next prev = prev.next; } //create a cirecle linkedlist prev.next = head; // create two temp node Node ptr1 = head; Node ptr2 = head; while(ptr1.next != ptr1){ //find index-th node int count = 1; while (count !</description>
     </item>
     

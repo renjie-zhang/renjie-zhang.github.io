@@ -15,15 +15,15 @@
     
 
     
-    <meta name="title" content="" />
-    <meta property="og:title" content="" />
-    <meta property="twitter:title" content="" />
+    <meta name="title" content="Gin" />
+    <meta property="og:title" content="Gin" />
+    <meta property="twitter:title" content="Gin" />
     
 
     
-    <meta name="description" content="张仁杰，程序员, 篮球爱好者">
-    <meta property="og:description" content="张仁杰，程序员, 篮球爱好者" />
-    <meta property="twitter:description" content="张仁杰，程序员, 篮球爱好者" />
+    <meta name="description" content="The fastest full-featured web framework for Go. Gin">
+    <meta property="og:description" content="The fastest full-featured web framework for Go. Gin" />
+    <meta property="twitter:description" content="The fastest full-featured web framework for Go. Gin" />
     
 
     
@@ -34,9 +34,9 @@
     <meta name="keyword"  content="程序=算法&#43;数据结构">
     <link rel="shortcut icon" href="/img/favicon.ico">
 
-    <title>张仁杰的博客 | Zhangrenjie Blog</title>
+    <title>Gin-张仁杰的博客 | Zhangrenjie Blog</title>
 
-    <link rel="canonical" href="/top/about/">
+    <link rel="canonical" href="/post/2020-3-14-gin-first/">
 
     <link rel="stylesheet" href="/css/iDisqus.min.css"/>
 	
@@ -158,14 +158,41 @@
 
 
 
-<header class="intro-header" style="background-image: url('https://res.cloudinary.com/renjie/image/upload/v1577282155/blog/post-bg-unix-linux_hdrw2k.jpg')">
+
+<style type="text/css">
+    header.intro-header {
+        background-image: url('https://res.cloudinary.com/renjie/image/upload/v1584195225/blog/moonlight_zpkllr.jpg')
+    }
+</style>
+<header class="intro-header">
     <div class="container">
         <div class="row">
-            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1 ">
-                <div class="site-heading">
-                    <h1>Renjie Blog </h1>
-                    
-		    <span class="subheading">取乎其上 得乎其中 取乎其中 得乎其下 取乎其下 则无所得矣</span>
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <div class="post-heading">
+                    <div class="tags">
+                        
+                        <a class="tag" href="/tags/web" title="Web">
+                            Web
+                        </a>
+                        
+                        <a class="tag" href="/tags/golang" title="Golang">
+                            Golang
+                        </a>
+                        
+                    </div>
+                    <h1>Gin</h1>
+                    <h2 class="subheading">Gin初体验</h2>
+                    <span class="meta">
+                        Posted by 
+                        
+                                 &#34;renjie.zhang&#34;
+                         
+                        on 
+                        Saturday, March 14, 2020
+                        
+                        
+                        
+                    </span>
                 </div>
             </div>
         </div>
@@ -185,17 +212,211 @@
                 col-md-10 col-md-offset-1
                 post-container">
 
-         	
+                
+                <header>
+                    <h2>TOC</h2>
+                </header>
+                <nav id="TableOfContents">
+<ul>
+<li><a href="#gin初体验">Gin初体验</a></li>
+</ul>
+</nav>
+                
+                
 
-<h1 id="about-me">About Me</h1>
+<h1 id="gin初体验">Gin初体验</h1>
 
-<p>戒骄、戒躁</p>
+<p>后端开发难免会接触到web,在Java的框架中spring一家独大，无论是web还是其他服务spring都是不二的选择；而golang的web方面选择特别的多，想<a href="https://gin-gonic.com/">gin</a>,<a href="https://beego.me/">beego</a>等，现在还处于不断造轮子的阶段，都在为开源做贡献，目前进行了一个Gin的初体验，总体上是让人很满意的，不管是gin还是beego都是以modules的这种形式，只允许加入自己需要的东西，减少负荷，以便加载到内存中的modules都是自己需要的。</p>
 
-<h2 id="成长中">成长中</h2>
+<p>特性都可以在gin的<a href="https://gin-gonic.com/zh-cn/docs/introduction/">文档</a>中寻找到，如果追求性能与高效，这是一个吸引人的亮点，在目前的开发中，都是最求极致的性能与高效。本来go已经在http中为我们做足了工作，建立起一个http请求及其简单。</p>
 
-<p>2015年9月-2019年6月 成都师范学院 计算机科学学院</p>
+<pre><code class="language-go">package main
 
-<p>2018年11月-至今   成都天衡智造有限公司 Java研发；目前主要内容维护以开发模块，PYQT开发</p>
+import (
+	&quot;fmt&quot;
+	&quot;net/http&quot;
+	&quot;time&quot;
+)
+
+func greet(w http.ResponseWriter, r *http.Request) {
+	fmt.Fprintf(w, &quot;Hello World! %s&quot;, time.Now())
+}
+
+func header(w http.ResponseWriter, req *http.Request) {
+	for name, headers := range req.Header {
+		for _, h := range headers {
+			fmt.Fprintf(w, &quot;%v: %v\n&quot;, name, h)
+		}
+	}
+}
+
+func main() {
+	http.HandleFunc(&quot;/&quot;, greet)
+	http.HandleFunc(&quot;/headers&quot;, header)
+	http.ListenAndServe(&quot;:8080&quot;, nil)
+}
+</code></pre>
+
+<p>这样便建立起了一个http server,监听在8080端口。而gin建立起一个请求更为简单，一下为入门例子。</p>
+
+<pre><code class="language-go">package main
+
+import &quot;github.com/gin-gonic/gin&quot;
+
+func main() {
+	r := gin.Default()
+	r.GET(&quot;/ping&quot;, func(c *gin.Context) {
+		c.JSON(200, gin.H{
+			&quot;message&quot;: &quot;pong&quot;,
+		})
+	})
+	r.Run()
+}
+</code></pre>
+
+<p>gin.Default()是一个默认的一个Engine,其中包含了Logger(),Recovery()模块，在gin中Logger称作为中间件，他会返回HandlerFunc,它是一个func(*Context)类型。</p>
+
+<pre><code class="language-go">// Default returns an Engine instance with the Logger and Recovery middleware already attached.
+func Default() *Engine {
+	debugPrintWARNINGDefault()
+	engine := New()
+	engine.Use(Logger(), Recovery())
+	return engine
+}
+</code></pre>
+
+<p>当然这部分可以是可以自定义的，完全可以基于自己的需求去实现一个中间件，然后加入到gin的模块中去。</p>
+
+<pre><code class="language-go">func LoggerFilter() gin.HandlerFunc {
+	return func(c *gin.Context) {
+		t := time.Now()
+		// set  example variable
+		c.Set(&quot;Demo&quot;, &quot;hello&quot;)
+		// before requests
+		c.Next()
+		// after requests
+		latency := time.Since(t)
+		log.Print(latency)
+
+		// obtain sand  status
+		status := c.Writer.Status()
+		log.Println(status)
+	}
+}
+
+func main() {
+	r := gin.New()
+	r.Use(LoggerFilter())
+	r.GET(&quot;/test&quot;, func(c *gin.Context) {
+		example := c.MustGet(&quot;example&quot;).(string)
+		// print ：&quot;hello&quot;
+		log.Println(example)
+	})
+
+	r.Run(&quot;:8080&quot;)
+}
+</code></pre>
+
+<p>自定义如上所示，new()是创建了一个没有任何中间件的一个Engine，再去加入自己需要的部分，或者是自定义的中间件。极大的赋予了开发者创作的权力。</p>
+
+<p>从第一个的体验来说，我比较好奇的地方是可以运行多个服务的功能，这个功能目前还从未遇到过这种需求，为什么需要这种功能，看来得随着深入的使用之后才会知道其中的缘由。</p>
+
+<pre><code class="language-go">package main
+
+import (
+	&quot;github.com/gin-gonic/gin&quot;
+	&quot;golang.org/x/sync/errgroup&quot;
+	&quot;log&quot;
+	&quot;net/http&quot;
+	&quot;time&quot;
+)
+
+var (
+	g errgroup.Group
+)
+
+func RouterOne() http.Handler{
+	one := gin.New()
+	one.Use(gin.Recovery())
+	one.GET(&quot;/&quot;, func(context *gin.Context) {
+		context.JSON(
+			http.StatusOK,
+			gin.H{
+				&quot;code&quot;:http.StatusOK,
+				&quot;error&quot;:&quot;welcome server one&quot;,
+			},
+			)
+	})
+	return one
+}
+
+func RouterTwo() http.Handler{
+	two := gin.New()
+	two.Use(gin.Recovery())
+	two.GET(&quot;/&quot;, func(context *gin.Context) {
+		context.JSON(
+			http.StatusOK,
+			gin.H{
+				&quot;code&quot;:http.StatusOK,
+				&quot;error&quot;:&quot;welcome server two&quot;,
+			},
+		)
+	})
+	return two
+}
+
+
+func main() {
+	serverone := &amp;http.Server{
+		Addr:              &quot;:8080&quot;,
+		Handler:           RouterOne(),
+		TLSConfig:         nil,
+		ReadTimeout:       5 * time.Second,
+		ReadHeaderTimeout: 0,
+		WriteTimeout:      5 * time.Second,
+		IdleTimeout:       0,
+		MaxHeaderBytes:    0,
+	}
+	servertwo := &amp;http.Server{
+		Addr:              &quot;:8081&quot;,
+		Handler:           RouterTwo(),
+		TLSConfig:         nil,
+		ReadTimeout:       5 * time.Second,
+		ReadHeaderTimeout: 0,
+		WriteTimeout:      5 * time.Second,
+		IdleTimeout:       0,
+		MaxHeaderBytes:    0,
+	}
+
+	g.Go(func() error {
+		return serverone.ListenAndServe()
+	})
+
+	g.Go(func() error {
+		return servertwo.ListenAndServe()
+	})
+
+	if err := g.Wait(); err != nil {
+		log.Fatal(err)
+	}
+}
+</code></pre>
+
+<p>第一次体验，对于gin充满了好感，尝试着使用此web框架去完成一些小的demo,随着使用的深入，应该可以解答我对于多个服务的疑惑。</p>
+
+
+                
+
+                <hr>
+                <ul class="pager">
+                    
+                    <li class="previous">
+                        <a href="/post/2019-08-31-josephus/" data-toggle="tooltip" data-placement="top" title="约瑟夫环(Josephus) ">&larr;
+                            Previous Post</a>
+                    </li>
+                    
+                    
+                </ul>
 
                 
 <div id="disqus-comment"></div>
@@ -219,13 +440,13 @@
                         
                         
                         <a href="/tags/algorithm" title="algorithm">
-                        algorithm
+                            algorithm
                         </a>
                         
                         
                         
                         <a href="/tags/data-structure" title="data-structure">
-                        data-structure
+                            data-structure
                         </a>
                         
                         
