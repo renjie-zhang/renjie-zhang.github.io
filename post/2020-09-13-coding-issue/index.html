@@ -15,15 +15,15 @@
     
 
     
-    <meta name="title" content="" />
-    <meta property="og:title" content="" />
-    <meta property="twitter:title" content="" />
+    <meta name="title" content="Coding Common Problem" />
+    <meta property="og:title" content="Coding Common Problem" />
+    <meta property="twitter:title" content="Coding Common Problem" />
     
 
     
-    <meta name="description" content="张仁杰，程序员, 篮球爱好者">
-    <meta property="og:description" content="张仁杰，程序员, 篮球爱好者" />
-    <meta property="twitter:description" content="张仁杰，程序员, 篮球爱好者" />
+    <meta name="description" content="有些时候不自觉就会犯的编码错误">
+    <meta property="og:description" content="有些时候不自觉就会犯的编码错误" />
+    <meta property="twitter:description" content="有些时候不自觉就会犯的编码错误" />
     
 
     
@@ -34,9 +34,9 @@
     <meta name="keyword"  content="程序=算法&#43;数据结构">
     <link rel="shortcut icon" href="/img/favicon.ico">
 
-    <title>Tags-张仁杰的博客 | Zhangrenjie Blog</title>
+    <title>Coding Common Problem-张仁杰的博客 | Zhangrenjie Blog</title>
 
-    <link rel="canonical" href="/tags/">
+    <link rel="canonical" href="/post/2020-09-13-coding-issue/">
 
     <link rel="stylesheet" href="/css/iDisqus.min.css"/>
 	
@@ -158,14 +158,37 @@
 
 
 
-<header class="intro-header" style="background-image: url('https://res.cloudinary.com/renjie/image/upload/v1592358094/blog/bamboo_cbsmb6.jpg')">
+
+<style type="text/css">
+    header.intro-header {
+        background-image: url('/%20https:/res.cloudinary.com/renjie/image/upload/v1599988356/blog/coding-problem_jmut0y.jpg')
+    }
+</style>
+<header class="intro-header">
     <div class="container">
         <div class="row">
-            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1 ">
-                <div class="site-heading">
-                    <h1>Renjie Blog </h1>
-                    
-		    <span class="subheading">取乎其上 得乎其中 取乎其中 得乎其下 取乎其下 则无所得矣</span>
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <div class="post-heading">
+                    <div class="tags">
+                        
+                        <a class="tag" href="/tags/design-pattern" title="Design Pattern">
+                            Design Pattern
+                        </a>
+                        
+                    </div>
+                    <h1>Coding Common Problem</h1>
+                    <h2 class="subheading">我们都会常犯的coding错误</h2>
+                    <span class="meta">
+                        Posted by 
+                        
+                            renjie.zhang
+                         
+                        on 
+                        Sunday, September 13, 2020
+                        
+                        
+                        
+                    </span>
                 </div>
             </div>
         </div>
@@ -178,13 +201,83 @@
 <article>
     <div class="container">
         <div class="row">
+
             
             <div class="
                 col-lg-8 col-lg-offset-2
                 col-md-10 col-md-offset-1
                 post-container">
 
-         	
+                
+                <header>
+                    <h2>TOC</h2>
+                </header>
+                <nav id="TableOfContents">
+<ul>
+<li>
+<ul>
+<li><a href="#封装的错误">封装的错误</a></li>
+</ul></li>
+</ul>
+</nav>
+                
+                
+
+<h2 id="封装的错误">封装的错误</h2>
+
+<p>工作中很多语言都是面向对象的语言，面向对象的三大特征，有时候也是四大特性，我们常说的封装、继承、多态，四大特性就需要加上抽象。我们对对象进行封装是为了更好隐藏或者数据访问保护，但是并不是所有的属性都是可以进行get与set的。这便是我们常犯的一个错误，使用Lombok的注解@Getter与@Setter直接将所有的属性暴露了，此时封装便形同虚无，完全没有达到目的。
+下面用极客时间王争设计模式之美课程的一个列子来说明：</p>
+
+<pre><code class="language-java">public class Wallet {                                             
+                                                                  
+    private String id;                                            
+    private long createTime;                                      
+    private BigDecimal balance;                                   
+    private long balanceLastModifiedTime;                         
+                                                                  
+    public String getId() {                                       
+        return id;                                                
+    }                                                             
+    public long getCreateTime() {                                 
+        return createTime;                                        
+    }                                                             
+                                                                  
+    public BigDecimal getBalance() {                              
+        return balance;                                           
+    }                                                             
+                                                                  
+    public long getBalanceLastModifiedTime() {                    
+        return balanceLastModifiedTime;                           
+    }                                                             
+                                                                  
+    public void increaseBalance(BigDecimal increasedAmount){      
+        if(increasedAmount.compareTo(BigDecimal.ZERO) &lt; 0){       
+            throw new Exception(&quot;...&quot;);                           
+        }                                                         
+        this.balance.add(increasedAmount);                        
+        this.balanceLastModifiedTime = System.currentTimeMillis();
+    }                                                             
+}                                                                 
+</code></pre>
+
+<p>这是一个虚拟钱包的大概一个实现，在我们平常的开发中，并不是很重视get与set方法，直接使用注解@Getter与@Setter，也让在修改属性返回类型，修改属性名称时很方便；但是这并不是我们的目的。对于部分属性我们是不需要对外暴露set方法，只允许get。 对于balance并没有set方法，而是封装在$increaseBalance()中，因为在修改时，需要对参数进行校验，满足条件的参数才会进行修改，这便是我们的目的，使用封装来对数据进行保护。</p>
+
+<p>未完</p>
+
+
+                
+
+                <hr>
+                <ul class="pager">
+                    
+                    <li class="previous">
+                        <a href="/post/2019-08-31-josephus/" data-toggle="tooltip" data-placement="top" title="约瑟夫环(Josephus) ">&larr;
+                            Previous Post</a>
+                    </li>
+                    
+                    
+                </ul>
+
                 
 <div id="disqus-comment"></div>
 
@@ -207,13 +300,13 @@
                         
                         
                         <a href="/tags/algorithm" title="algorithm">
-                        algorithm
+                            algorithm
                         </a>
                         
                         
                         
                         <a href="/tags/data-structure" title="data-structure">
-                        data-structure
+                            data-structure
                         </a>
                         
                         

@@ -3,43 +3,54 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
+    <loc>https://renjie-zhang.github.io/categories/blog/</loc>
+    <lastmod>2020-09-13T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://renjie-zhang.github.io/categories/</loc>
+    <lastmod>2020-09-13T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://renjie-zhang.github.io/post/2020-09-13-coding-issue/</loc>
+    <lastmod>2020-09-13T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://renjie-zhang.github.io/tags/design-pattern/</loc>
+    <lastmod>2020-09-13T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://renjie-zhang.github.io/post/</loc>
+    <lastmod>2020-09-13T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://renjie-zhang.github.io/</loc>
+    <lastmod>2020-09-13T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://renjie-zhang.github.io/tags/</loc>
+    <lastmod>2020-09-13T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
     <loc>https://renjie-zhang.github.io/tags/algorithm/</loc>
     <lastmod>2019-09-03T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>https://renjie-zhang.github.io/categories/blog/</loc>
-    <lastmod>2019-09-03T00:00:00+00:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>https://renjie-zhang.github.io/categories/</loc>
-    <lastmod>2019-09-03T00:00:00+00:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
     <loc>https://renjie-zhang.github.io/tags/data-structure/</loc>
-    <lastmod>2019-09-03T00:00:00+00:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>https://renjie-zhang.github.io/post/</loc>
-    <lastmod>2019-09-03T00:00:00+00:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>https://renjie-zhang.github.io/</loc>
-    <lastmod>2019-09-03T00:00:00+00:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>https://renjie-zhang.github.io/tags/</loc>
     <lastmod>2019-09-03T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
