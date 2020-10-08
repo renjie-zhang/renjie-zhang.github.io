@@ -18,7 +18,7 @@
       <guid>https://renjie-zhang.github.io/top/about/</guid>
       <description>About Me 戒骄、戒躁
 成长中 2015年9月-2019年6月 成都师范学院 计算机科学学院
-2018年11月-至今 成都天衡智造有限公司 Java研发；目前主要内容维护以开发模块，PYQT开发</description>
+2019年6月-至今 成都天衡智造有限公司 Java研发，主要工作为工业物联网数据采集,为工厂提供数据化、信息化解决方案。主要接入的设备有机床、磨床、西门子PLC、欧姆龙PLC、传感器等。主要使用协议有MQTT、OPC、Modbus等。负责数据采集摆渡服务（JAVA）的开发，以及边缘设备数据处理（.Net Core）开发.</description>
     </item>
     
   </channel>
