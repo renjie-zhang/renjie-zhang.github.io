@@ -3,6 +3,53 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
+    <loc>https://renjie-zhang.github.io/categories/blog/</loc>
+    <lastmod>2021-06-01T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://renjie-zhang.github.io/categories/</loc>
+    <lastmod>2021-06-01T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://renjie-zhang.github.io/tags/concurrency/</loc>
+    <lastmod>2021-06-01T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://renjie-zhang.github.io/tags/java/</loc>
+    <lastmod>2021-06-01T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://renjie-zhang.github.io/post/</loc>
+    <lastmod>2021-06-01T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://renjie-zhang.github.io/</loc>
+    <lastmod>2021-06-01T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://renjie-zhang.github.io/tags/</loc>
+    <lastmod>2021-06-01T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://renjie-zhang.github.io/post/2021-06-01-java%E7%BA%BF%E7%A8%8B%E4%B8%8E%E9%94%81%E6%A8%A1%E5%9E%8B/</loc>
+    <lastmod>2021-06-01T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
     <loc>https://renjie-zhang.github.io/search/placeholder/</loc>
     <priority>0</priority>
   </url>
@@ -13,22 +60,7 @@
   </url>
   
   <url>
-    <loc>https://renjie-zhang.github.io/categories/</loc>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>https://renjie-zhang.github.io/</loc>
-    <priority>0</priority>
-  </url>
-  
-  <url>
     <loc>https://renjie-zhang.github.io/search/</loc>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>https://renjie-zhang.github.io/tags/</loc>
     <priority>0</priority>
   </url>
   

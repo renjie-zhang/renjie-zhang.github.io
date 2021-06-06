@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Renjie Blog</title>
-    <link>https://renjie-zhang.github.io/</link>
-    <description>Recent content on Renjie Blog</description>
+    <title>Posts on Renjie Blog</title>
+    <link>https://renjie-zhang.github.io/post/</link>
+    <description>Recent content in Posts on Renjie Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <lastBuildDate>Tue, 01 Jun 2021 00:00:00 +0000</lastBuildDate>
     
-	<atom:link href="https://renjie-zhang.github.io/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://renjie-zhang.github.io/post/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
@@ -25,26 +25,6 @@ private volatile int j; private volatile int k; /* 如果两个volatile变量位
 锁与无锁 使用synchronized的方式保证了资源只会被一个线程进行操作，其他线程被阻塞，并且等待此锁被释放，此过程还无法被中断，对于JUC中提供了更便利的锁，改善了以上的问题。比如ReentrantLock,ReentrantReadWriteLock等。而在使用锁上面也是增加了超时和条件等锁。锁带来的消耗是比较大的，在操作是，要求使用锁的时间尽量短，快速释放，但是这样也是存在消耗大的问题。此时更倾向于使用无锁CAS。
 CAS即CompareAndSwap,也就是比较并交换。CAS有三个操作变量：内存位置、旧的预期值、新的值。但是内存位置的变量于旧的预期值一样的时候使用新的值去替换旧的值，这是一个原子指令，所以在原子性上能够得到保证。以下是AtomicLong的CAS实现。使用循环来进行更新变量相比线程的上下文切换于调度，消耗更小一些，但是也是存在一些问题。
 public final long incrementAndGet() { for (;;) { long current = get();（1） long next = current + 1;（2） if (compareAndSet(current, next))（3） return next; } } public final boolean compareAndSet(long expect, long update) { return unsafe.compareAndSwapLong(this, valueOffset, expect, update); }  一是ABA问题，另外一个便是自旋时间过长带来的CPU消耗问题。对于ABA问题，给出的方案便是在更新时添加一个版本号。</description>
-    </item>
-    
-    <item>
-      <title></title>
-      <link>https://renjie-zhang.github.io/search/placeholder/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>https://renjie-zhang.github.io/search/placeholder/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title></title>
-      <link>https://renjie-zhang.github.io/top/about/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>https://renjie-zhang.github.io/top/about/</guid>
-      <description>About Me 戒骄、戒躁
-成长中 2015年9月-2019年6月 成都师范学院 计算机科学学院
-2019年6月-至今 成都天衡智造有限公司 Java研发，主要工作为工业物联网数据采集,为工厂提供数据化、信息化解决方案。主要接入的设备有机床、磨床、西门子PLC、欧姆龙PLC、传感器等。主要使用协议有MQTT、OPC、Modbus等。负责数据采集摆渡服务（JAVA）的开发，以及边缘设备数据处理（.Net Core）开发.</description>
     </item>
     
   </channel>

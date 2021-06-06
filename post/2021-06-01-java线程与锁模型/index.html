@@ -15,15 +15,15 @@
     
 
     
-    <meta name="title" content="" />
-    <meta property="og:title" content="" />
-    <meta property="twitter:title" content="" />
+    <meta name="title" content="并发模型之-Java线程与锁模型" />
+    <meta property="og:title" content="并发模型之-Java线程与锁模型" />
+    <meta property="twitter:title" content="并发模型之-Java线程与锁模型" />
     
 
     
-    <meta name="description" content="张仁杰——程序员">
-    <meta property="og:description" content="张仁杰——程序员" />
-    <meta property="twitter:description" content="张仁杰——程序员" />
+    <meta name="description" content="线程与锁模型">
+    <meta property="og:description" content="线程与锁模型" />
+    <meta property="twitter:description" content="线程与锁模型" />
     
 
     
@@ -34,9 +34,9 @@
     <meta name="keyword"  content="程序=算法&#43;数据结构">
     <link rel="shortcut icon" href="/img/favicon.ico">
 
-    <title>Tops-张仁杰的博客 | Zhangrenjie Blog</title>
+    <title>并发模型之-Java线程与锁模型-张仁杰的博客 | Zhangrenjie Blog</title>
 
-    <link rel="canonical" href="/top/">
+    <link rel="canonical" href="/post/2021-06-01-java%E7%BA%BF%E7%A8%8B%E4%B8%8E%E9%94%81%E6%A8%A1%E5%9E%8B/">
 
     <link rel="stylesheet" href="/css/iDisqus.min.css"/>
 	
@@ -158,14 +158,41 @@
 
 
 
-<header class="intro-header" style="background-image: url('https://res.cloudinary.com/renjie/image/upload/v1592358094/blog/bamboo_cbsmb6.jpg')">
+
+<style type="text/css">
+    header.intro-header {
+        background-image: url('https://res.cloudinary.com/renjie/image/upload/v1577282156/blog/Queue-title_wlvocj.jpg')
+    }
+</style>
+<header class="intro-header">
     <div class="container">
         <div class="row">
-            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1 ">
-                <div class="site-heading">
-                    <h1>Renjie Blog </h1>
-                    
-		    <span class="subheading">取乎其上 得乎其中 取乎其中 得乎其下 取乎其下 则无所得矣</span>
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <div class="post-heading">
+                    <div class="tags">
+                        
+                        <a class="tag" href="/tags/concurrency" title="Concurrency">
+                            Concurrency
+                        </a>
+                        
+                        <a class="tag" href="/tags/java" title="Java">
+                            Java
+                        </a>
+                        
+                    </div>
+                    <h1>并发模型之-Java线程与锁模型</h1>
+                    <h2 class="subheading">并发模型</h2>
+                    <span class="meta">
+                        Posted by 
+                        
+                                 &#34;renjie.zhang&#34;
+                         
+                        on 
+                        Tuesday, June 1, 2021
+                        
+                        
+                        
+                    </span>
                 </div>
             </div>
         </div>
@@ -178,13 +205,117 @@
 <article>
     <div class="container">
         <div class="row">
+
             
             <div class="
                 col-lg-8 col-lg-offset-2
                 col-md-10 col-md-offset-1
                 post-container">
 
-         	
+                
+                <header>
+                    <h2>TOC</h2>
+                </header>
+                <nav id="TableOfContents">
+<ul>
+<li><a href="#并发模型之-java线程与锁模型">并发模型之-Java线程与锁模型</a>
+<ul>
+<li><a href="#内存可见性">内存可见性</a></li>
+<li><a href="#锁与无锁">锁与无锁</a></li>
+<li><a href="#参考资料"><strong>参考资料：</strong></a></li>
+</ul></li>
+</ul>
+</nav>
+                
+                
+
+<h1 id="并发模型之-java线程与锁模型">并发模型之-Java线程与锁模型</h1>
+
+<p>著名的摩尔定律[<a href="https://zh.wikipedia.org/wiki/摩尔定律">1]</a>，集成电路可以容纳的晶体管数量大约两年（通常被称为18个月）就会增加一倍，处理器性能也会提高一倍。计算机在不断的增强，编程尽可能的压榨CPU的每一丝性能，在程序上为了让代码跑的更快，并发编程利用多核，发掘多核的潜力。</p>
+
+<p>在并发中我们最为熟悉也是最为底层的模型是线程于锁模型，从线程与锁模型中可以实现多种的并发控制方式。它是一种细粒度控制并发的并发模型，很适合对于资源敏感的场景。</p>
+
+<p>对于共享的资源，通过锁或者使用synchronized进行同步可以保证在一个时刻只允许一个线程对资源进行操作，保证了线程操作资源的互斥性。在并发场景下，资源操作的互斥性，内存可见性以及操作资源的原子性为线程安全的重要因素。</p>
+
+<h2 id="内存可见性">内存可见性</h2>
+
+<p>volatile能够作用到的是禁止指令重排与变量内存可见性。在不修改语义的情况下，JVM是做了一些指令重排，但是使用volatile之后，在volatile变量操作时时禁止指令重排，同时又增加了volatile的happen-before原则。内存可变性是在多个core的操作同一个变量时，其中一个core更新变量值之后，其他core将会将自己工作内存中的变量的副本失效，从而重新去内存中拷贝最新的值。这样虽然带来了一些资源消耗，但是能够保证变量在各个core中的可见性；但存在以下情况时，需要使用Padding去解决问题。</p>
+
+<pre><code class="language-java">private volatile int j;
+private volatile int k;
+/*
+如果两个volatile变量位于同一个缓存单元中（cache line），
+一个core修改变量A，另外一个core修改变量B，
+A的更新导致另外一个core的B也一直在更新，
+位于同一个cache line中的B也会去拉去最新的值，
+即使另外一个完全不关心A的值。
+解决这个问题需要使用Padding,将两个volatile变量分割到两个cache line中
+*/
+</code></pre>
+
+<p>volatile能够修改的变量在更新时并不能保证原子性，并且值修改不能依赖原来的值，如果需要，则可以从JUC的atomic中寻找更合适的工具类。</p>
+
+<h2 id="锁与无锁">锁与无锁</h2>
+
+<p>使用synchronized的方式保证了资源只会被一个线程进行操作，其他线程被阻塞，并且等待此锁被释放，此过程还无法被中断，对于JUC中提供了更便利的锁，改善了以上的问题。比如ReentrantLock,ReentrantReadWriteLock等。而在使用锁上面也是增加了超时和条件等锁。锁带来的消耗是比较大的，在操作是，要求使用锁的时间尽量短，快速释放，但是这样也是存在消耗大的问题。此时更倾向于使用无锁CAS。</p>
+
+<p>CAS即CompareAndSwap,也就是比较并交换。CAS有三个操作变量：内存位置、旧的预期值、新的值。但是内存位置的变量于旧的预期值一样的时候使用新的值去替换旧的值，这是一个原子指令，所以在原子性上能够得到保证。以下是AtomicLong的CAS实现。使用循环来进行更新变量相比线程的上下文切换于调度，消耗更小一些，但是也是存在一些问题。</p>
+
+<pre><code class="language-java">public final long incrementAndGet() {
+        for (;;) {
+            long current = get();（1）
+            long next = current + 1;（2）
+            if (compareAndSet(current, next))（3）
+                return next;
+        }
+    }
+
+public final boolean compareAndSet(long expect, long update) {
+        return unsafe.compareAndSwapLong(this, valueOffset, expect, update);
+}
+</code></pre>
+
+<p>一是ABA问题，另外一个便是自旋时间过长带来的CPU消耗问题。对于ABA问题，给出的方案便是在更新时添加一个版本号。</p>
+
+<pre><code class="language-java">// expectedReference 期望被修改的值
+// newReference 新的值
+// expectedStamp 被修改的版本号
+// newStamp 新的版本号
+public boolean compareAndSet(V   expectedReference,
+                                 V   newReference,
+                                 int expectedStamp,
+                                 int newStamp) {
+        Pair&lt;V&gt; current = pair;
+        return
+            expectedReference == current.reference &amp;&amp;
+            expectedStamp == current.stamp &amp;&amp;
+            ((newReference == current.reference &amp;&amp;
+              newStamp == current.stamp) ||
+             casPair(current, Pair.of(newReference, newStamp)));
+    }
+</code></pre>
+
+<p>二是在执行的时候自旋开销大</p>
+
+<p>如果长时间的自旋，会产生不少的执行开销，并且为了结束自旋的时候避免内存顺序冲突，CPU会对流水线进行重排，这样会影响CPU性能，解决办法是让JVM支持处理器提供的pause指令。此指令的作用一是延迟流水执行指令，使CPU不会消耗过多的资源，延迟的时间取决于具体的实现，二是可以避免在退出循环的时候因内存顺序冲突而引起CPU流水线被清空。</p>
+
+<p>三是只能保证一个共享变量的原子操作</p>
+
+<p>在Java1.5开始提供AtomicReference类来保证引用对象的原子性，可以将多个对象封装到一个对象中来使用无锁。</p>
+
+<h2 id="参考资料"><strong>参考资料：</strong></h2>
+
+<p>[1].<a href="https://zh.wikipedia.org/wiki/摩尔定律">https://zh.wikipedia.org/wiki/摩尔定律</a></p>
+
+
+                
+
+                <hr>
+                <ul class="pager">
+                    
+                    
+                </ul>
+
                 
 <div id="disqus-comment"></div>
 

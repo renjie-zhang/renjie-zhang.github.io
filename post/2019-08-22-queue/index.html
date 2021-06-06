@@ -1,0 +1,770 @@
+<!DOCTYPE html>
+<html lang="en-us">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    
+    <meta property="og:site_name" content="Renjie Blog">
+    <meta property="og:type" content="article">
+
+    
+    <meta property="og:image" content="https://renjie-zhang.github.io/https://res.cloudinary.com/renjie/image/upload/v1592358094/blog/bamboo_cbsmb6.jpg">
+    <meta property="twitter:image" content="https://renjie-zhang.github.io/https://res.cloudinary.com/renjie/image/upload/v1592358094/blog/bamboo_cbsmb6.jpg" />
+    
+
+    
+    <meta name="title" content="Queue" />
+    <meta property="og:title" content="Queue" />
+    <meta property="twitter:title" content="Queue" />
+    
+
+    
+    <meta name="description" content="A Queue is a linear structure which follows a particular order in which the operations are performed. The order is First In First Out (FIFO).">
+    <meta property="og:description" content="A Queue is a linear structure which follows a particular order in which the operations are performed. The order is First In First Out (FIFO)." />
+    <meta property="twitter:description" content="A Queue is a linear structure which follows a particular order in which the operations are performed. The order is First In First Out (FIFO)." />
+    
+
+    
+    <meta property="twitter:card" content="summary" />
+    
+    
+
+    <meta name="keyword"  content="程序=算法&#43;数据结构">
+    <link rel="shortcut icon" href="/img/favicon.ico">
+
+    <title>Queue-张仁杰的博客 | Zhangrenjie Blog</title>
+
+    <link rel="canonical" href="/post/2019-08-22-queue/">
+
+    <link rel="stylesheet" href="/css/iDisqus.min.css"/>
+	
+    
+    <link rel="stylesheet" href="/css/bootstrap.min.css">
+
+    
+    <link rel="stylesheet" href="/css/hux-blog.min.css">
+
+    
+    <link rel="stylesheet" href="/css/syntax.css">
+    
+    
+    <link rel="stylesheet" href="/css/zanshang.css">
+    
+    
+    <link href="//cdnjs.cloudflare.com/ajax/libs/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+
+    
+    
+
+    
+    
+    <script src="/js/jquery.min.js"></script>
+    
+    
+    <script src="/js/bootstrap.min.js"></script>
+    
+    
+    <script src="/js/hux-blog.min.js"></script>
+
+    
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.13.1/styles/Googlecode.min.css">
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.13.1/highlight.min.js"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+
+    
+    
+
+</head>
+
+
+
+<nav class="navbar navbar-default navbar-custom navbar-fixed-top">
+    <div class="container-fluid">
+        
+        <div class="navbar-header page-scroll">
+            <button type="button" class="navbar-toggle">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="/">Renjie Blog</a>
+        </div>
+
+        
+        
+        <div id="huxblog_navbar">
+            <div class="navbar-collapse">
+                <ul class="nav navbar-nav navbar-right">
+                    <li>
+                        <a href="/">Home</a>
+                    </li>
+                    
+                    <li>
+                        <a href="/categories/blog">blog</a>
+                    </li>
+                    
+                    
+		    
+                        <li><a href="https://renjie-zhang.gitbook.io/k8s/">k8s</a></li>
+                    
+                        <li><a href="/top/about/">ABOUT</a></li>
+                    
+
+                    
+		    <li>
+                        <a href="/search">SEARCH <img src="/img/search.png" height="15" style="cursor: pointer;" alt="Search"></a>
+		    </li>
+                    
+                </ul>
+            </div>
+        </div>
+        
+    </div>
+    
+</nav>
+<script>
+    
+    
+    
+    var $body   = document.body;
+    var $toggle = document.querySelector('.navbar-toggle');
+    var $navbar = document.querySelector('#huxblog_navbar');
+    var $collapse = document.querySelector('.navbar-collapse');
+
+    $toggle.addEventListener('click', handleMagic)
+    function handleMagic(e){
+        if ($navbar.className.indexOf('in') > 0) {
+        
+            $navbar.className = " ";
+            
+            setTimeout(function(){
+                
+                if($navbar.className.indexOf('in') < 0) {
+                    $collapse.style.height = "0px"
+                }
+            },400)
+        }else{
+        
+            $collapse.style.height = "auto"
+            $navbar.className += " in";
+        }
+    }
+</script>
+
+
+
+
+<style type="text/css">
+    header.intro-header {
+        background-image: url('https://res.cloudinary.com/renjie/image/upload/v1577282156/blog/Queue-title_wlvocj.jpg')
+    }
+</style>
+<header class="intro-header">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <div class="post-heading">
+                    <div class="tags">
+                        
+                        <a class="tag" href="/tags/data-structure" title="Data Structure">
+                            Data Structure
+                        </a>
+                        
+                        <a class="tag" href="/tags/algorithm" title="Algorithm">
+                            Algorithm
+                        </a>
+                        
+                    </div>
+                    <h1>Queue</h1>
+                    <h2 class="subheading">数组实现</h2>
+                    <span class="meta">
+                        Posted by 
+                        
+                                 &#34;renjie.zhang&#34;
+                         
+                        on 
+                        Tuesday, August 20, 2019
+                        
+                        
+                        
+                    </span>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+
+
+
+
+<article>
+    <div class="container">
+        <div class="row">
+
+            
+            <div class="
+                col-lg-8 col-lg-offset-2
+                col-md-10 col-md-offset-1
+                post-container">
+
+                
+                <header>
+                    <h2>TOC</h2>
+                </header>
+                <nav id="TableOfContents">
+<ul>
+<li><a href="#队列ⅰ">队列Ⅰ</a>
+<ul>
+<li><a href="#基于数组方式实现队列-java">基于数组方式实现队列（java）</a></li>
+<li><a href="#基于数组实现队列-golang">基于数组实现队列(golang)</a></li>
+<li><a href="#循环队列">循环队列</a></li>
+<li><a href="#基于数组实现循环队列-java">基于数组实现循环队列（java）</a></li>
+<li><a href="#基于数组实现循环队列-golang">基于数组实现循环队列（golang）</a></li>
+</ul></li>
+</ul>
+</nav>
+                
+                
+
+<h1 id="队列ⅰ">队列Ⅰ</h1>
+
+<p>像堆栈一样，队列是一种线性结构，它遵循着执行操作的特定顺序。比如在开发中常用的线程池就是一个队列，当我们向固定大小的线程池中请求一个线程时，如果线程池中有空闲的资源，那么可以获得到到，但是如果没有空闲的资源，那么线程池的处理一般有两种；一种是非阻塞的处理方式，直接拒绝任务请求；另外一种是阻塞的方式，将请求排队，等到有空闲的线程时，取出排队的请求继续处理。当处理排队请求时，我们又希望公平地处理每一个请求，先进先服务。队列有基于链表与基于数组的实现方式。</p>
+
+<ol>
+<li>基于链表实现的队列可以实现一个无限排队的无界队列，但是可能导致过多请求排队，请求响应的时间过长，对于大部分资源有限又对响应时间敏感的系统，基于链表实现的无限排队的线程池是不适合的。</li>
+<li>基于数据实现的队列可以实现一个有界队列，队列的大小有限，所以线程池中的排队请求超过队列的大小时，接下来的请求会被拒绝，这种对于响应时间敏感的系统来说更加的适合；但是队列的大小设置是一个十分重要的因素，队列大导致请求过多，队列小导致无法充分利用系统资源，发挥最大性能。</li>
+</ol>
+
+<h2 id="基于数组方式实现队列-java">基于数组方式实现队列（java）</h2>
+
+<pre><code class="language-java">public class ArrayQueue {
+    //表示队列的最大容量
+    private int maxSize;
+    //对列的头
+    private int front;
+    //队列的尾
+    private int rear;
+    //数组
+    private int[] arr;
+
+    /**
+     * 构造器
+     * @param arrMaxSize 队列的最大容量
+     */
+    public ArrayQueue(int arrMaxSize){
+        this.maxSize = arrMaxSize;
+        this.arr = new int[maxSize];
+        //-1表示front的前一个位置
+        this.front = -1;
+        //-1表示rear的最后一个数据
+        this.rear = -1;
+    }
+
+    /**
+     *判断队列是否已装满
+     * @return
+     */
+    public boolean isFull(){
+        return  rear == maxSize-1;
+    }
+
+    /**
+     * 判断队列是否为空
+     * @return
+     */
+    public boolean isEmpty(){
+        return front == rear;
+    }
+
+    /**
+     * 向队列中添加数据
+     * @param n 数据
+     */
+    public void addToQueue(int n){
+        if(isFull()){
+            System.out.println(&quot;队列已满，不能加入数据&quot;);
+            return;
+        }
+        rear++;
+        arr[rear] = n;
+    }
+
+    /**
+     * 获得队列中的数据
+     * @return
+     */
+    public int getData(){
+        if(isEmpty()){
+            throw new RuntimeException(&quot;队列为空，不能取出数据&quot;);
+        }
+        front++;
+        return arr[front];
+    }
+
+    /**
+     * 输出队列所有元素
+     */
+    public void Show(){
+        if (isEmpty()){
+            System.out.println(&quot;队列为空&quot;);
+            return;
+        }
+        for(int i=0;i&lt;arr.length;i++){
+            System.out.printf(&quot;arr[%d]=%d\t&quot;,i,arr[i]);
+            System.out.println();
+        }
+    }
+
+    /**
+     * 获取队列的头部数据
+     * @return
+     */
+    public int headData(){
+        if (isEmpty()){
+            throw new RuntimeException(&quot;队列为空，不能取出数据&quot;);
+        }
+        return arr[front+1];
+    }
+</code></pre>
+
+<h2 id="基于数组实现队列-golang">基于数组实现队列(golang)</h2>
+
+<pre><code class="language-go">package ArrayQueue
+
+import &quot;fmt&quot;
+
+type ArrayQueue struct {
+	q        []interface{}
+	capacity int
+	front    int
+	rear     int
+}
+
+func NewArrayQueue(n int) *ArrayQueue {
+	if n == 0 {
+		return nil
+	}
+	return &amp;ArrayQueue{make([]interface{}, n), n, 0, 0}
+}
+
+//判断是队列是否已满
+func (this *ArrayQueue) IsFull() bool {
+	if this.rear == this.capacity {
+		return true
+	}
+	return false
+}
+
+//判断队列是否为空
+func (this *ArrayQueue) IsEmpty() bool {
+	if this.rear == this.front {
+		return true
+	}
+	return false
+}
+
+//出队列操作
+func (this *ArrayQueue) DeQueue() interface{} {
+	if this.IsEmpty() {
+		return nil
+	}
+	v := this.q[this.front]
+	this.front++
+	return v
+}
+
+//入队操作
+func (this *ArrayQueue) EnQueue(v interface{}) bool {
+	if this.IsFull() {
+		return false
+	}
+	this.q[this.rear] = v
+	this.rear++
+	return true
+}
+
+//打印所有元素
+
+func (this *ArrayQueue) Show() string {
+	if this.IsEmpty() {
+		return &quot;queue is empty(⊙﹏⊙)&quot;
+	}
+	result := &quot;front&quot;
+	for i := this.front; i &lt;= this.rear-1; i++ {
+		result += fmt.Sprintf(&quot;&lt;-%+v&quot;, this.q[i])
+	}
+	result += &quot;&lt;-rear&quot;
+	return result
+}
+
+</code></pre>
+
+<h2 id="循环队列">循环队列</h2>
+
+<p>当使用一个数组实现队列，进行出队与入队操作之后，已使用过的位置不能进行重复使用，导致资源浪费，所以可以使用一个循环队列来保证充分利用资。循环队列是一种基于先进先出（FIFO）操作顺序的线性数据结构，将最后一个位置连接回第一个位置形成一个圆圈，它也被称作“环形缓冲区”。在环形队列中判断队列满了的条件有产生了变化，当(Rear+1)%MaxSize = Front时，此时的队列便不能再进行入队了。实际上Rear执行的地址并没有存储数据，因此循环队列会浪费掉一个位置。</p>
+
+<p><img src="https://res.cloudinary.com/renjie/image/upload/v1577282154/blog/Circular-queue_sulaay.png" alt="queue" /></p>
+
+<h2 id="基于数组实现循环队列-java">基于数组实现循环队列（java）</h2>
+
+<pre><code class="language-java">public class CircleQueue {
+    //表示队列的最大容量
+    private int maxSize;
+    //对列的头
+    private int front;
+    //队列的尾
+    private int rear;
+    //数组
+    private int[] arr;
+
+    /**
+     * 构造方法
+     * @param arrMaxSize 数组的最大容量
+     */
+    public CircleQueue(int arrMaxSize){
+        maxSize = arrMaxSize;
+        arr = new int[arrMaxSize];
+        rear = 0;
+        front = 0;
+    }
+    /**
+     *判断队列是否已装满
+     * @return
+     */
+    public boolean isFull(){
+        return  (rear+1)%maxSize == front;
+    }
+
+    /**
+     * 判断队列是否为空
+     * @return
+     */
+    public boolean isEmpty(){
+        return front == rear;
+    }
+
+    /**
+     * 想队列中加入数据
+     * @param n
+     * @return
+     */
+    public void addToQueue(int n){
+        if (isFull()){
+            System.out.println(&quot;队列已满，不能加入数据&quot;);
+            return;
+        }
+        arr[rear] = n;
+        //将rear后移，必须进行取模
+        rear = (rear+1)%maxSize;
+    }
+
+    /**
+     * 取出队列中的数据
+     * @return
+     */
+    public int getData(){
+        if(isEmpty()){
+            throw new RuntimeException(&quot;队列为空，不能取出数据&quot;);
+        }
+        //这里需要分析出front是指向队列的第一个元素
+        //1使用临时变量存储front的值
+        //2先将front后移，再取模
+        //3返回临时变量
+        int temp = arr[front];
+        front = (front+1)%maxSize;
+        return  temp;
+    }
+
+    public void show(){
+        if(isEmpty()){
+            System.out.println(&quot;队列为空&quot;);
+            return;
+        }
+        for(int i = front;i&lt;front+Count();i++){
+            System.out.printf(&quot;arr[%d] = %d\n&quot;,i%maxSize,arr[i%maxSize]);
+        }
+    }
+
+    /**
+     * 队列中的有效元素
+     * @return
+     */
+    public int Count(){
+        return (rear+maxSize-front)%maxSize;
+    }
+
+    /**
+     * 获得头元素
+     * @return
+     */
+    public int headDate(){
+        if (isEmpty()){
+            throw new RuntimeException(&quot;队列为空，不能取出数据&quot;);
+        }
+        return arr[front];
+    }
+</code></pre>
+
+<h2 id="基于数组实现循环队列-golang">基于数组实现循环队列（golang）</h2>
+
+<pre><code class="language-go">package CircleQueue
+
+import &quot;fmt&quot;
+
+type CircleQueue struct {
+	q        []interface{}
+	capacity int
+	rear     int
+	front    int
+}
+
+//实例化函数
+func NewCircleQueue(n int) *CircleQueue {
+	if n == 0 {
+		return nil
+	}
+	return &amp;CircleQueue{make([]interface{}, n), n, 0, 0}
+}
+
+//队列为空的条件 rear = front
+func (this *CircleQueue) IsEmpty() bool {
+	if this.rear == this.front {
+		return true
+	}
+	return false
+}
+
+//队列已满 (rear+1)%capacity == front
+func (this *CircleQueue) IsFull() bool {
+	if ((this.rear + 1) % this.capacity) == this.front {
+		return true
+	}
+	return false
+}
+
+//数据入队列
+func (this *CircleQueue) EnQueue(v interface{}) bool {
+	if this.IsFull() {
+		return false
+	}
+	this.q[this.rear] = v
+	this.rear = (this.rear + 1) % this.capacity
+	return true
+}
+
+//数据出队列
+func (this *CircleQueue) DeQueue() interface{} {
+	if this.IsEmpty() {
+		return false
+	}
+	v := this.q[this.front]
+	this.front = (this.front + 1) % this.capacity
+	return v
+}
+
+//展示队列
+func (this *CircleQueue) Show() string {
+	if this.IsEmpty() {
+		return &quot;queue is empty(⊙﹏⊙)&quot;
+	}
+	result := &quot;front&quot;
+	var i = this.front
+	for true {
+		result += fmt.Sprintf(&quot;&lt;-%+v&quot;, this.q[i])
+		i = (i + 1) % this.capacity
+		if i == this.rear {
+			break
+		}
+	}
+	result += &quot;&lt;-rear&quot;
+	return result
+}
+
+</code></pre>
+
+<p>参考资料：</p>
+
+<p>数据结构与算法之美 -王争： <a href="https://time.geekbang.org/column/intro/126">https://time.geekbang.org/column/intro/126</a></p>
+
+<p>geeksforgeeks：<a href="https://www.geeksforgeeks.org/queue-data-structure/">https://www.geeksforgeeks.org/queue-data-structure/</a></p>
+
+
+                
+
+                <hr>
+                <ul class="pager">
+                    
+                    
+                </ul>
+
+                
+<div id="disqus-comment"></div>
+
+
+
+            </div>
+            
+            <div class="
+                col-lg-8 col-lg-offset-2
+                col-md-10 col-md-offset-1
+                sidebar-container">
+
+                
+                
+                <section>
+                    <hr class="hidden-sm hidden-xs">
+                    <h5><a href="/tags/">FEATURED TAGS</a></h5>
+                    <div class="tags">
+                        
+                        
+                        
+                        
+                        
+                        
+                    </div>
+                </section>
+                
+
+                
+                
+            </div>
+        </div>
+    </div>
+</article>
+
+
+
+
+<footer>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <ul class="list-inline text-center">
+                   
+                    
+                    <li>
+                        <a href="mailto:joker_zhang1030@outlook.com">
+                            <span class="fa-stack fa-lg">
+                                <i class="fa fa-circle fa-stack-2x"></i>
+                                <i class="fa fa-envelope fa-stack-1x fa-inverse"></i>
+                            </span>
+                        </a>
+                    </li>
+		    
+                    
+                    
+                    
+                    
+
+                    
+
+		    
+                    
+                    
+                    <li>
+                        <a target="_blank" href="https://github.com/renjie-zhang">
+                            <span class="fa-stack fa-lg">
+                                <i class="fa fa-circle fa-stack-2x"></i>
+                                <i class="fa fa-github fa-stack-1x fa-inverse"></i>
+                            </span>
+                        </a>
+                    </li>
+		    
+                    
+                    
+                    
+                    <li>
+                        <a target="_blank" href="https://www.linkedin.com/in/renjiezhang">
+                            <span class="fa-stack fa-lg">
+                                <i class="fa fa-circle fa-stack-2x"></i>
+                                <i class="fa fa-linkedin fa-stack-1x fa-inverse"></i>
+                            </span>
+                        </a>
+                    </li>
+		    
+                    
+                    
+                    
+                    
+                    
+                </ul>
+		<p class="copyright text-muted">
+                    Copyright &copy; Renjie Blog 2021
+                    <br>
+                    <a href="https://themes.gohugo.io/hugo-theme-cleanwhite">CleanWhite Hugo Theme</a> by <a href="https://zhaohuabing.com">Huabing</a> |
+                    <iframe
+                        style="margin-left: 2px; margin-bottom:-5px;"
+                        frameborder="0" scrolling="0" width="100px" height="20px"
+                        src="https://ghbtns.com/github-btn.html?user=zhaohuabing&repo=hugo-theme-cleanwhite&type=star&count=true" >
+                    </iframe>
+                </p>
+            </div>
+        </div>
+    </div>
+</footer>
+
+
+
+
+<script>
+    function async(u, c) {
+      var d = document, t = 'script',
+          o = d.createElement(t),
+          s = d.getElementsByTagName(t)[0];
+      o.src = u;
+      if (c) { o.addEventListener('load', function (e) { c(null, e); }, false); }
+      s.parentNode.insertBefore(o, s);
+    }
+</script>
+
+
+
+
+
+
+<script>
+    
+    if($('#tag_cloud').length !== 0){
+        async("/js/jquery.tagcloud.js",function(){
+            $.fn.tagcloud.defaults = {
+                
+                color: {start: '#bbbbee', end: '#0085a1'},
+            };
+            $('#tag_cloud a').tagcloud();
+        })
+    }
+</script>
+
+
+<script>
+    async("https://cdnjs.cloudflare.com/ajax/libs/fastclick/1.0.6/fastclick.js", function(){
+        var $nav = document.querySelector("nav");
+        if($nav) FastClick.attach($nav);
+    })
+</script>
+
+
+
+
+
+
+<script type="application/javascript">
+var doNotTrack = false;
+if (!doNotTrack) {
+	window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+	ga('create', 'UA-145793581-1', 'auto');
+	
+	ga('send', 'pageview');
+}
+</script>
+<script async src='https://www.google-analytics.com/analytics.js'></script>
+
+
+
+</body>
+</html>

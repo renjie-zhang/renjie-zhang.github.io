@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Data Structure on Renjie Blog</title>
+    <link>https://renjie-zhang.github.io/tags/data-structure/</link>
+    <description>Recent content in Data Structure on Renjie Blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Tue, 20 Aug 2019 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="https://renjie-zhang.github.io/tags/data-structure/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Queue</title>
+      <link>https://renjie-zhang.github.io/post/2019-08-22-queue/</link>
+      <pubDate>Tue, 20 Aug 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://renjie-zhang.github.io/post/2019-08-22-queue/</guid>
+      <description>队列Ⅰ 像堆栈一样，队列是一种线性结构，它遵循着执行操作的特定顺序。比如在开发中常用的线程池就是一个队列，当我们向固定大小的线程池中请求一个线程时，如果线程池中有空闲的资源，那么可以获得到到，但是如果没有空闲的资源，那么线程池的处理一般有两种；一种是非阻塞的处理方式，直接拒绝任务请求；另外一种是阻塞的方式，将请求排队，等到有空闲的线程时，取出排队的请求继续处理。当处理排队请求时，我们又希望公平地处理每一个请求，先进先服务。队列有基于链表与基于数组的实现方式。
+ 基于链表实现的队列可以实现一个无限排队的无界队列，但是可能导致过多请求排队，请求响应的时间过长，对于大部分资源有限又对响应时间敏感的系统，基于链表实现的无限排队的线程池是不适合的。 基于数据实现的队列可以实现一个有界队列，队列的大小有限，所以线程池中的排队请求超过队列的大小时，接下来的请求会被拒绝，这种对于响应时间敏感的系统来说更加的适合；但是队列的大小设置是一个十分重要的因素，队列大导致请求过多，队列小导致无法充分利用系统资源，发挥最大性能。  基于数组方式实现队列（java） public class ArrayQueue { //表示队列的最大容量 private int maxSize; //对列的头 private int front; //队列的尾 private int rear; //数组 private int[] arr; /** * 构造器 * @param arrMaxSize 队列的最大容量 */ public ArrayQueue(int arrMaxSize){ this.maxSize = arrMaxSize; this.arr = new int[maxSize]; //-1表示front的前一个位置 this.front = -1; //-1表示rear的最后一个数据 this.rear = -1; } /** *判断队列是否已装满 * @return */ public boolean isFull(){ return rear == maxSize-1; } /** * 判断队列是否为空 * @return */ public boolean isEmpty(){ return front == rear; } /** * 向队列中添加数据 * @param n 数据 */ public void addToQueue(int n){ if(isFull()){ System.</description>
+    </item>
+    
+  </channel>
+</rss>
